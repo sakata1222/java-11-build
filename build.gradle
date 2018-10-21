@@ -12,6 +12,8 @@ plugins {
 
   // Apply the application plugin to add support for building an application
   id 'application'
+
+  id "jacoco"
 }
 
 sourceCompatibility = '1.11'
@@ -33,9 +35,21 @@ dependencies {
   testCompile group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
 }
 
+jacoco {
+  toolVersion = "0.8.2"
+}
+
+jacocoTestReport {
+  reports {
+    html.enabled = true
+  }
+}
+
 test {
   useJUnitPlatform()
 }
+
+test.finalizedBy jacocoTestReport
 
 // In this section you declare where to find the dependencies of your project
 repositories {
