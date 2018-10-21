@@ -1,3 +1,7 @@
 # java-11-build
 
-Basic configuration for Java11 + Gradle.
+Basic configuration for Java11 + gradle with:
+
+- JUnit5 + assertj
+- Jacoco coverage report 
+- Spot bugs (instead of Find bugs)
