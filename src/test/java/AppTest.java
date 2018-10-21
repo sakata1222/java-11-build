@@ -11,6 +11,6 @@ public class AppTest {
   @Test
   public void testAppHasAGreeting() {
     App classUnderTest = new App();
-    assertThat(classUnderTest.getGreeting()).isNotNull();
+    assertThat(classUnderTest.getGreeting()).isEqualTo("HelloHello world.");
   }
 }
