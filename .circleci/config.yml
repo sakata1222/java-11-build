@@ -24,6 +24,10 @@ jobs:
     steps:
       - checkout
 
+      # install fossa cli
+      - run: |
+          curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -37,6 +41,15 @@ jobs:
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      - run:
+          command: chmod u+x gradlew
+      - run:
+          command: fossa init
+          working_directory: ./
+      - run:
+          command: fossa analyze
+          working_directory: ./
 
       # run tests!
       - run: gradle test
