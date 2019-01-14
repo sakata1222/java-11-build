@@ -14,7 +14,7 @@ plugins {
   id 'application'
 
   id "jacoco"
-  id "com.github.spotbugs" version "1.6.5"
+  id "com.github.spotbugs" version "1.6.9"
 }
 
 sourceCompatibility = '1.11'
@@ -54,7 +54,7 @@ test.finalizedBy jacocoTestReport
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
   reports {
-    xml.enabled = true
+    xml.enabled = false
     html.enabled = true
   }
 }
